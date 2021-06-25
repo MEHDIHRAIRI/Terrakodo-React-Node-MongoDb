@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import MaterialTable from "material-table";
 import axios from "axios";
-import DateFnsUtils from '@date-io/date-fns';
-import {
-    DatePicker,
-    MuiPickersUtilsProvider,
-  } from '@material-ui/pickers';
 const DataTable = () => {
+    
+  const [selectedDate, handleDateChange] = useState(new Date());
   const [data, setData] = useState();
   const [addFlag, setAddFlag] = useState(false);
   const columns = [
@@ -25,23 +22,12 @@ const DataTable = () => {
     {
       title: "date of completion",
       field: "date_completion",
-      type: 'date',
-      editComponent: props => (
-        <MuiPickersUtilsProvider utils={DateFnsUtils} 
-                    locale={props.dateTimePickerLocalization}>
-               <DatePicker
-                      format="dd/MM/yyyy"
-                      value={props.value || null}
-                      onChange={props.onChange}
-                      clearable
-                      InputProps={{
-                               style: {
-                                    fontSize: 13,
-                               }
-                      }}
-                 />
-          </MuiPickersUtilsProvider>
-         )
+
+    },
+    {
+        title: "State",
+        field: "state",
+        type: "combobox"
     }
   ];
   useEffect(() => {

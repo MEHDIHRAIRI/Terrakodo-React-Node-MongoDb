@@ -1,10 +1,22 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import DataTable from './components/Datatable';
+import NavBar from "./components/NavBar"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+      <NavBar />
+      <Router>
+        <Fragment>
+          <Switch>
+            <Route path="/Task" component= {DataTable} />
+          </Switch>
+        </Fragment>
+      </Router>
+    </>
   );
 }
 

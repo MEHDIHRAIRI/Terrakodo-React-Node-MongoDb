@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DataTable from './components/Datatable';
 import NavBar from "./components/NavBar"
 import './App.css';
-import Board from './components/Board';
+import BoardMain from './components/BoardMain';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Fragment>
           <Switch>
             <Route path="/Task" component= {DataTable} />
-            <Route path="/board" component= {Board} />
+            <Route path="/board" component= {BoardMain}  />
           </Switch>
         </Fragment>
       </Router>

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 
 function Card(props) {
     
-    const target = e.target;
+    const dragStart = e =>{ 
+      const target = e.target;
     e.dataTransfer.setData('card_id',target.id);
     setTimeout(()=>{
         target.style.diplay = "none"
     },0 );
-
+  }
     const dragOver = e => {
         e.stopPropagation();
     }
@@ -16,7 +17,8 @@ function Card(props) {
     <div 
         className={props.className}
         id={props.id}
-        onDrop={drop}
+        draggable={props.draggable}
+        onDragStart={dragStart}
         onDragOver={dragOver} 
             >
                 {props.children}
